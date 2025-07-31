@@ -10,6 +10,7 @@ import {
   Tooltip,
   Legend,
   Filler,
+  TooltipItem,
 } from "chart.js"
 import { Line, Bar } from "react-chartjs-2"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
@@ -110,7 +111,7 @@ export function PerformanceChart() {
         cornerRadius: 8,
         displayColors: true,
         callbacks: {
-          label: (context: any) => {
+          label: (context: TooltipItem<"line"> | TooltipItem<"bar">) => {
             let label = context.dataset.label || ""
             if (label) {
               label += ": "
