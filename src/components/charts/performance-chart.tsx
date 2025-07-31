@@ -292,7 +292,7 @@ export function PerformanceChart() {
             <div>
               <CardTitle className="flex items-center gap-2">
                 <TrendingUp className="h-5 w-5" />
-                Performances de l'École
+                Performances de l&apos;École
               </CardTitle>
               <CardDescription>Évolution des inscriptions, revenus et satisfaction</CardDescription>
             </div>

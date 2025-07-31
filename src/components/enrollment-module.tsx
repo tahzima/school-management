@@ -104,7 +104,7 @@ export function EnrollmentModule() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-3xl font-bold text-gray-900">Gestion des Inscriptions</h1>
-          <p className="text-gray-600 mt-1">Traitement des demandes d'inscription et réinscription</p>
+          <p className="text-gray-600 mt-1">Traitement des demandes d&apos;inscription et réinscription</p>
         </div>
         <Dialog open={isNewEnrollmentOpen} onOpenChange={setIsNewEnrollmentOpen}>
           <DialogTrigger asChild>
@@ -115,19 +115,19 @@ export function EnrollmentModule() {
           </DialogTrigger>
           <DialogContent className="sm:max-w-[600px] max-h-[80vh] overflow-y-auto">
             <DialogHeader>
-              <DialogTitle>Nouvelle Demande d'Inscription</DialogTitle>
+              <DialogTitle>Nouvelle Demande d&apos;Inscription</DialogTitle>
               <DialogDescription>
-                Remplissez les informations pour créer une nouvelle demande d'inscription.
+                Remplissez les informations pour créer une nouvelle demande d&apos;inscription.
               </DialogDescription>
             </DialogHeader>
             <div className="grid gap-4 py-4">
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <Label htmlFor="student-name">Nom de l'élève</Label>
+                  <Label htmlFor="student-name">Nom de l&apos;élève</Label>
                   <Input id="student-name" />
                 </div>
                 <div>
-                  <Label htmlFor="student-firstname">Prénom de l'élève</Label>
+                  <Label htmlFor="student-firstname">Prénom de l&apos;élève</Label>
                   <Input id="student-firstname" />
                 </div>
               </div>
@@ -168,7 +168,7 @@ export function EnrollmentModule() {
                   <Input id="parent-phone" />
                 </div>
                 <div>
-                  <Label htmlFor="emergency-contact">Contact d'urgence</Label>
+                  <Label htmlFor="emergency-contact">Contact d&apos;urgence</Label>
                   <Input id="emergency-contact" />
                 </div>
               </div>
@@ -271,8 +271,8 @@ export function EnrollmentModule() {
       {/* Enrollments Table */}
       <Card>
         <CardHeader>
-          <CardTitle>Demandes d'Inscription</CardTitle>
-          <CardDescription>Liste de toutes les demandes d'inscription et leur statut</CardDescription>
+          <CardTitle>Demandes d&apos;Inscription</CardTitle>
+          <CardDescription>Liste de toutes les demandes d&apos;inscription et leur statut</CardDescription>
         </CardHeader>
         <CardContent>
           <Table>

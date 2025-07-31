@@ -28,7 +28,7 @@ export function AuthGuard({ children, requiredRole, requiredPermission, fallback
           <CardContent className="p-6 text-center">
             <AlertCircle className="h-12 w-12 text-red-500 mx-auto mb-4" />
             <h3 className="text-lg font-semibold text-gray-900 mb-2">Accès non autorisé</h3>
-            <p className="text-gray-600">Vous n'avez pas les permissions nécessaires pour accéder à cette section.</p>
+            <p className="text-gray-600">Vous n&apos;avez pas les permissions nécessaires pour accéder à cette section.</p>
           </CardContent>
         </Card>
       )
@@ -44,7 +44,7 @@ export function AuthGuard({ children, requiredRole, requiredPermission, fallback
             <AlertCircle className="h-12 w-12 text-red-500 mx-auto mb-4" />
             <h3 className="text-lg font-semibold text-gray-900 mb-2">Permission requise</h3>
             <p className="text-gray-600">
-              Vous n'avez pas la permission "{requiredPermission}" pour accéder à cette fonctionnalité.
+              Vous n&apos;avez pas la permission "{requiredPermission}" pour accéder à cette fonctionnalité.
             </p>
           </CardContent>
         </Card>

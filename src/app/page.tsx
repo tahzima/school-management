@@ -90,7 +90,7 @@ export default function SchoolManagement() {
               <div className="flex items-center justify-between">
                 <div>
                   <h1 className="text-3xl font-bold text-gray-900">Tableau de Bord</h1>
-                  <p className="text-gray-600 mt-1">Vue d'ensemble de votre établissement scolaire</p>
+                  <p className="text-gray-600 mt-1">Vue d&apos;ensemble de votre établissement scolaire</p>
                 </div>
                 <div className="flex items-center gap-3">
                   <NotificationCenter />

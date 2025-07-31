@@ -83,7 +83,7 @@ export function StudentsModule() {
             <DialogContent className="sm:max-w-[425px]">
               <DialogHeader>
                 <DialogTitle>Ajouter un nouvel élève</DialogTitle>
-                <DialogDescription>Remplissez les informations de l'élève ci-dessous.</DialogDescription>
+                <DialogDescription>Remplissez les informations de l&apos;élève ci-dessous.</DialogDescription>
               </DialogHeader>
               <div className="grid gap-4 py-4">
                 <div className="grid grid-cols-4 items-center gap-4">
