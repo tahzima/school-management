@@ -1,19 +1,11 @@
 "use client"
 
+import { useState } from "react"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import {
-  Users,
-  GraduationCap,
-  Calendar,
-  CreditCard,
-  Bus,
-  BookOpen,
-  Building,
-  UserCheck,
-  Home,
-  Settings,
-  LogOut,
+  Users, GraduationCap, Calendar, CreditCard, Bus, BookOpen, Building,
+  UserCheck, Home, Settings, LogOut, Menu
 } from "lucide-react"
 import { useAuth } from "@/contexts/auth-context"
 
@@ -24,6 +16,7 @@ interface SidebarProps {
 
 export function Sidebar({ activeModule, setActiveModule }: SidebarProps) {
   const { user, logout } = useAuth()
+  const [open, setOpen] = useState(false)
   const menuItems = [
     { id: "dashboard", label: "Tableau de Bord", icon: Home },
     { id: "students", label: "Élèves", icon: Users },
@@ -36,8 +29,9 @@ export function Sidebar({ activeModule, setActiveModule }: SidebarProps) {
     { id: "transport", label: "Transport", icon: Bus },
   ]
 
-  return (
-    <div className="w-64 bg-white border-r border-gray-200 flex flex-col">
+  // Sidebar content à réutiliser
+  const sidebarContent = (
+    <div className="w-64 bg-white border-r border-gray-200 flex flex-col h-full">
       {/* Logo */}
       <div className="p-6 border-b border-gray-200">
         <div className="flex items-center gap-3">
@@ -50,7 +44,6 @@ export function Sidebar({ activeModule, setActiveModule }: SidebarProps) {
           </div>
         </div>
       </div>
-
       {/* Navigation */}
       <nav className="flex-1 p-4 space-y-2">
         {menuItems.map((item) => (
@@ -61,14 +54,16 @@ export function Sidebar({ activeModule, setActiveModule }: SidebarProps) {
               "w-full justify-start transition-all duration-200",
               activeModule === item.id ? "bg-blue-600 text-white shadow-md" : "hover:bg-gray-100 text-gray-700",
             )}
-            onClick={() => setActiveModule(item.id)}
+            onClick={() => {
+              setActiveModule(item.id)
+              setOpen(false) // Ferme le menu mobile
+            }}
           >
             <item.icon className="h-4 w-4 mr-3" />
             {item.label}
           </Button>
         ))}
       </nav>
-
       {/* User Info & Footer */}
       <div className="p-4 border-t border-gray-200 space-y-3">
         {user && (
@@ -101,5 +96,31 @@ export function Sidebar({ activeModule, setActiveModule }: SidebarProps) {
         </Button>
       </div>
     </div>
+  )
+
+  return (
+    <>
+      {/* Bouton menu hamburger mobile (caché si open) */}
+      {!open && (
+        <button
+          className="fixed z-50 p-1 rounded-md shadow md:hidden"
+          onClick={() => setOpen(true)}
+          aria-label="Ouvrir le menu"
+        >
+          <Menu className="h-6 w-6 text-gray-700" />
+        </button>
+      )}
+
+      {/* Sidebar desktop */}
+      <div className="hidden md:flex">{sidebarContent}</div>
+
+      {/* Sidebar mobile (overlay) */}
+      {open && (
+        <div className="fixed inset-0 z-40 flex">
+          <div className="absolute inset-0 bg-black/40" onClick={() => setOpen(false)} />
+          <div className="relative">{sidebarContent}</div>
+        </div>
+      )}
+    </>
   )
 }
