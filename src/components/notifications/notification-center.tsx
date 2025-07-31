@@ -8,7 +8,7 @@ import { Separator } from "@/components/ui/separator"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { Bell, Check, CheckCheck, Trash2, AlertCircle, Info, CheckCircle, AlertTriangle } from "lucide-react"
 import { useNotifications } from "@/contexts/notification-context"
-import { formatDistanceToNow } from "date-fns"
+import {formatDistanceToNow} from "date-fns/formatDistanceToNow"
 import { fr } from "date-fns/locale"
 
 export function NotificationCenter() {
