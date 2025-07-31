@@ -6,14 +6,31 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Calendar, Plus, Clock, MapPin, User, ChevronLeft, ChevronRight } from "lucide-react"
 
+type WeekDay = "Lundi" | "Mardi" | "Mercredi" | "Jeudi" | "Vendredi"
+
+type Lesson = {
+  subject: string
+  teacher: string
+  room: string
+  class: string
+}
+
+type DaySchedule = {
+  [time: string]: Lesson
+}
+
+type Schedule = {
+  [day in WeekDay]: DaySchedule
+}
+
 export function ScheduleModule() {
   const [currentWeek, setCurrentWeek] = useState(0)
 
   const timeSlots = ["08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00"]
 
-  const weekDays = ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi"]
+  const weekDays: WeekDay[] = ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi"]
 
-  const schedule = {
+  const schedule: Schedule = {
     Lundi: {
       "09:00": { subject: "Mathématiques", teacher: "Dr. Moreau", room: "A101", class: "Terminale S" },
       "10:00": { subject: "Physique", teacher: "Mme. Laurent", room: "B205", class: "Première S" },
@@ -116,7 +133,7 @@ export function ScheduleModule() {
                     {time}
                   </div>
                   {weekDays.map((day) => {
-                    const lesson = schedule[day as keyof typeof schedule]?.[time]
+                    const lesson = schedule[day]?.[time]
                     return (
                       <div key={`${day}-${time}`} className="p-2 border-l min-h-[80px]">
                         {lesson && (
